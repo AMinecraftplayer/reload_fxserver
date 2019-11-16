@@ -1,0 +1,19 @@
+# * means every X minute/hour/day of month/month/day of week
+# m h  dom mon dow   command
+#                       Minute  Hour    Day of month    Month           Day of week
+# Allowed values        0-59    0-23    1-31            1-12 or JAN-DEC 0-6 or SUN-SAT
+# * = any value
+# , = value list separator i.e. MON,WED,FRI
+# - = range of values i.e. 10-15 (all numbers between, including 10 and 15)
+# / = step values i.e. 0-23/2 gives every two hours (also same as */2 on hour)
+
+@reboot ./reload_fxserver.sh restart
+57 6 * * * ./reload_fxserver.sh restart
+
+0 6 * * * ./reload_fxserver.sh daily
+5 6 * * 1 ./reload_fxserver.sh weekly
+10 6 1 * * ./reload_fxserver.sh monthly
+15 6 1 1 * ./reload_fxserver.sh yearly
+
+# Times are shifted a few minutes to spread out the server load. This can be edited to your preference. 
+# The script dosen't care about a specific timing. But it will only autremove from daily, weekly, monthly, yearly
