@@ -82,7 +82,7 @@ start() {
       # Server startup command. Treid to make another variable here but failed to run the server and just open another screen in a screen and bunvh of formatting headace...
   sleep 2
     echo -e "$BOT$GREEN Server has booted!"
-    echo -e "$BOT$GREEN Open screen with:$ORANGE screen -r"
+    echo -e "$BOT$GREEN Open screen with:$ORANGE screen -r$WHITE"
   sleep 1
   fi
 }
@@ -98,7 +98,7 @@ stop() {
 	else
 	  echo -e "$BOT$RED FiveM server is off."
     echo -e ""
-    echo -e "$BOT$PURPLE USE: $ORANGE $SCRIPT start" 
+    echo -e "$BOT$PURPLE USE: $ORANGE $SCRIPT start$WHITE" 
   sleep 1
 	fi
 }
@@ -106,9 +106,9 @@ stop() {
 status() {
 	if ( running ) 
   then
-	  echo -e "$GREEN [$SCNAME] is active."
+	  echo -e "$GREEN [$SCNAME] is active.$WHITE"
 	else
-	  echo -e "$RED [$SCNAME] is down."
+	  echo -e "$RED [$SCNAME] is down.$WHITE"
 	fi
 }
 # ----------------[ Restart ]---------------- #
@@ -155,7 +155,7 @@ stopnow() {
   else
 	  echo -e "$BOT$RED FiveM server is not active."
     echo -e ""
-    echo -e "$BOT$PURPLE USE: $ORANGE $SCRIPT start" 
+    echo -e "$BOT$PURPLE USE: $ORANGE $SCRIPT start.$WHITE" 
   sleep 1
 	fi
 }
@@ -225,7 +225,7 @@ backup() {
     echo -e "$BOT$WHITE Copying file from server to backup and then tar + gzip..."
       cp -r $RES $BUP && tar -cpzf $BUP.tar.gz $BUP >>/dev/null 2>&1
       rm -r $BUP
-    echo -e "$BOT$WHITE All done!"
+    echo -e "$BOT$WHITE All done!$WHITE"
 }
 
 #Start-Stop here
@@ -255,7 +255,7 @@ backup() {
      ;;
 	*)
     echo -e "$ORANGE USE :$WHITE $0 {start|stop|status|restart|backup [daily|weekly|monthly|yearly|whatever (create a periodicity of your choosing)]}"
-    echo -e "$BOT$WHITE You can also use $0 {stopnow|restartnow}  Used for skipping the 3 min stop time."
+    echo -e "$BOT$WHITE You can also use $0 {stopnow|restartnow}  Used for skipping the 3 min stop time.$WHITE"
     exit 1
 ;;
 esac
