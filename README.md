@@ -21,5 +21,6 @@ To install:
 6) Update backups/.env with your user and password for your database user dedicated to your FXServer. 
 7) fxserver_screen.conf do have path to a log foler. Keep it or change it, your choice. It's nice to have a secondary output for ther server log. You can allow certain people to follow the log files instead of giving them the screen...
 8) Look at my crontab example.
-9) Leave feedback on the repo after testing!
+9) Make your reload_fxserver.sh executable. chmod +x ./reload_fxserver.sh
+10) Leave feedback on the repo after testing!
 
