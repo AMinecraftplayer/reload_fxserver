@@ -16,4 +16,7 @@ To install:
 3) Edit messages to match your language...I shoud probably just upload current in english...
 4) Edit ExcludeDatabases to match your DB's  
 5) Make sure all the varibles match your folders and edit names how you like. Just don't use any other charachters then standard english alphapet A-Z and 0-9. Untested non the less.
-6) 
+6) Update backups/.env with your user and password for your database user dedicated to your FXServer. 
+7) fxserver_screen.conf do have path to a log foler. Keep it or change it, your choice. It's nice to have a secondary output for ther server log. You can allow certain people to follow the log files instead of giving them the screen...
+8) Look at my crontab example.
+
