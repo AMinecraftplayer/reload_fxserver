@@ -141,15 +141,15 @@ restartnow() {
 stopnow() {
 	if ( running ) 
   then
-		echo -e "$BOT$WHITE Stoppar FiveM servern..."
-    echo -e "$BOT$WHITE Servern stoppas direkt."
+		echo -e "$BOT$WHITE Stop FiveM server..."
+    echo -e "$BOT$WHITE Server will stop NOW."
 		  $SCRN quit
-		echo -e "$BOT$WHITE Servern har stannat."
+		echo -e "$BOT$WHITE Server has stopped."
 	sleep 1
   else
-	  echo -e "$BOT$RED FiveM servern är inte igång."
+	  echo -e "$BOT$RED FiveM server is not active."
     echo -e ""
-    echo -e "$BOT$PURPLE Använd: $ORANGE $SCRIPT start" 
+    echo -e "$BOT$PURPLE USE: $ORANGE $SCRIPT start" 
   sleep 1
 	fi
 }
