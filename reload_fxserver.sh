@@ -30,8 +30,14 @@
   RES=$DATA/resources                 # Dir of server data resources folder 
 
 # Backups
+  DAYS_DAILY=14     # Days to wait to remove oldest daily backup
+  DAYS_WEEKLY=42    # Days to wait to remove oldest weekly backup
+  DAYS_MONTHLY=365  # Days to wait to remove oldest monthly backup
+  DAYS_YEARLY=1460  # Days to wait to remove oldest yearly backup
+
   PCITY=$2  # The PERIODICITY of when to save backups.
-  ExcludeDatabases="Database|information_schema|performance_schema|mysql|phpmyadmin" # Specify ALL databases regardless of permission level
+  ExcludeDatabases="Database|information_schema|performance_schema|mysql|phpmyadmin" 
+  # Specify ALL databases regardless of permission level. Database,information_schema,performance_schema,mysql Are required. And should not be backed up by your game server user.
 
 # Script
   SCRIPT="./reload_fxserver.sh"       # This file
@@ -171,10 +177,10 @@ logfiles() {
       find $DATA/log/* -mtime +14 rm {} \; >>/dev/null 2>&1 #14 days
     sleep 1
     echo -e "$BOT$ORANGE Removing old backups (databases and games files)..."
-      find $BUPS/daily/* -mtime +14 rm {} \; >>/dev/null 2>&1
-      find $BUPS/weekly/* -mtime +42 rm {} \; >>/dev/null 2>&1
-      find $BUPS/monthly/* -mtime +365 rm {} \; >>/dev/null 2>&1
-      find $BUPS/yearly/* -mtime +1460 rm {} \; >>/dev/null 2>&1
+      find $BUPS/daily/* -mtime +$DAYS_DAILY rm {} \; >>/dev/null 2>&1
+      find $BUPS/weekly/* -mtime +$DAYS_WEEKLY rm {} \; >>/dev/null 2>&1
+      find $BUPS/monthly/* -mtime +$DAYS_MONTHLY rm {} \; >>/dev/null 2>&1
+      find $BUPS/yearly/* -mtime +$DAYS_YEARLY rm {} \; >>/dev/null 2>&1
     sleep 1
 }
 # ----------------[ Backups ]---------------- #
